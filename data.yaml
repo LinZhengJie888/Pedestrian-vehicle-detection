@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['Pedestrian', 'Vehicle']
+
+roboflow:
+  workspace: pedestrian-detection-5ttqq
+  project: pedestrian-vehicle-detection
+  version: 7
+  license: Public Domain
+  url: https://universe.roboflow.com/pedestrian-detection-5ttqq/pedestrian-vehicle-detection/dataset/7
