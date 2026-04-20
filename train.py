@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 import os
 
-os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'  # 设置环境变量，避免某些系统库冲突
 
 def train_yolo():
     # 加载 YOLOv11 nano 预训练权重（首次运行自动下载，约 5MB）
@@ -12,9 +12,9 @@ def train_yolo():
         data='data.yaml',       # 数据集配置文件路径（相对/绝对都可）
         epochs=50,              # 训练轮次
         imgsz=416,              # 输入图像尺寸
-        batch=4,                # 批次大小（根据显存调整，4060 8G 设 4 没问题）
-        device='cuda',          # 使用 GPU（你的 RTX 4060）
-        workers=2,              # Windows 下先设 0，避免多进程数据加载报错
+        batch=4,                # 批次大小（根据自身显存调整，本机采用 4060 8G 设 4 没问题）
+        device='cuda',          # 使用 GPU（RTX 4060）
+        workers=2,              # Windows 下可先设 0，避免多进程数据加载报错
         project='runs/detect',  # 项目保存目录
         name='yolo11_vp',       # 实验名称
         val=True,               # 训练时验证
